@@ -1,0 +1,7 @@
+﻿Enable-Migrations -ContextTypeName DatabaseContext -MigrationsDirectory Shared\Migrations
+add-migration -ConfigurationTypeName Alquiler.Persistence.Shared.Migrations.Configuration "001-InitialCreate"
+
+context.Riders.AddOrUpdate(t=>t.Id, DummyData.GetRiders().ToArray());
+context.SaveChanges;
+
+update-database -ConfigurationTypeName Alquiler.Persistence.Shared.Migrations.Configuration

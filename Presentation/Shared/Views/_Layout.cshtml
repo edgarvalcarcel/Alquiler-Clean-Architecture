@@ -1,0 +1,45 @@
+﻿@using System
+@using System.Web.Mvc.Html
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Alquiler de Equipos</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Bootstrap.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Cycling Club", "index", "home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "home")</li>
+                    <li>@Html.ActionLink("Equipments", "Index", "Equipos")</li>
+                    <li>@Html.ActionLink("Clientes", "Index", "Customers")</li>
+                    <li>@Html.ActionLink("Categories", "Index", "Bodegas")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - <a href="http://inmetaltec.com/" target="blank">Inmetaltec</a></p>
+        </footer>
+    </div>
+    @*@Scripts.Render("~/bundles/jquery") @Scripts.Render("~/bundles/bootstrap") @RenderSection("scripts", required: false)*@
+</body>
+</html>
